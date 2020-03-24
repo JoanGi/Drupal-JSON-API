@@ -1,0 +1,92 @@
+{
+    "name": "acquia/lightning-project",
+    "type": "project",
+    "description": "Project template for Drupal 8 sites built with the Lightning distribution.",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "cweagans/composer-patches": "^1.6.0",
+        "drupal-composer/drupal-scaffold": "^2.0.0",
+        "drupal/bootstrap_library": "^1.11",
+        "drupal/admin_toolbar": "^2.0",
+        "drupal/devel": "^2.1",
+        "drupal/simple_oauth_extras": "^3.16",
+        "drupal/console": "~1.0",
+        "drupal/responsive_preview": "^1.0@beta",
+        "drupal/charts": "^3.1",
+        "drupal/google_analytics": "^3.0",
+        "drupal/google_analytics_reports": "^3.0@beta",
+        "drupal/yoast_seo": "^1.5",
+        "drupal/components": "^1.1",
+        "drupal/radix": "^4.7",
+        "drupal/radix_layouts": "^4.1",
+        "drupal/search_api_solr": "^3.9",
+        "drupal/gin": "^3.0@alpha",
+        "drupal/openapi_ui_redoc": "^1.0@RC",
+        "drupal/openapi": "^2.0",
+        "drupal/openapi_jsonapi": "^2.0@RC",
+        "drupal/jsonapi_extras": "^3.13"
+    },
+    "require-dev": {
+        "drush/drush": "^9.0"
+    },
+    "config": {
+        "process-timeout": 0
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "enable-patching": true,
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ]
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ]
+    },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "dev": {
+            "type": "github",
+            "url": "https://github.com/acquia/lightning-dev",
+            "no-api": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "post-update-cmd": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "post-create-project-cmd": "rm -r -f .travis.yml behat.yml .travis-ci",
+        "nuke": "rm -r -f web/modules/contrib web/profiles/contrib/lightning vendor composer.lock",
+        "quick-start": [
+            "composer install",
+            "php web/core/scripts/drupal quick-start lightning --no-interaction"
+        ]
+    }
+}
