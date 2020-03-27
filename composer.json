@@ -60,7 +60,15 @@
         "installer-types": [
             "bower-asset",
             "npm-asset"
-        ]
+        ],
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/jsonapi_extras": {
+                "Avoid error while working with relationships": "https://www.drupal.org/files/issues/2020-03-11/3105165-check-empty-resource_object-before-calling-getResourceType.patch"
+            }
+        }
     },
     "repositories": {
         "drupal": {
