@@ -5,12 +5,36 @@ dependencies: {  }
 _core:
   default_config_hash: Qf1B6Oytv6SDX58ba6IfUBGsq76oCUzu5Mpp9fevDJw
 id: anonymous
-label: 'Anonymous user'
+label: 'Usuario anónimo'
 weight: 0
 is_admin: false
 permissions:
   - 'access content'
   - 'access site-wide contact form'
+  - 'bypass node access'
+  - 'create recipe content'
+  - 'create terms in recipe_category'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete any recipe content'
+  - 'delete article revisions'
+  - 'delete own recipe content'
+  - 'delete recipe revisions'
+  - 'delete terms in recipe_category'
+  - 'delete terms in tags'
+  - 'edit any recipe content'
+  - 'edit own recipe content'
+  - 'edit terms in recipe_category'
+  - 'edit terms in tags'
+  - 'revert recipe revisions'
   - 'search content'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition publish'
   - 'use text format restricted_html'
+  - 'view any unpublished content'
+  - 'view latest version'
   - 'view media'
+  - 'view recipe revisions'
